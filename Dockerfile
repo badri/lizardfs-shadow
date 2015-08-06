@@ -26,3 +26,7 @@ RUN cp /etc/mfs/mfsmaster.cfg.dist /etc/mfs/mfsmaster.cfg
 RUN sed -i 's/LIZARDFSMASTER_ENABLE=false/LIZARDFSMASTER_ENABLE=true/g'  /etc/default/lizardfs-master
 
 RUN echo "PERSONALITY=shadow" >> /etc/mfs/mfsmaster.cfg
+
+EXPOSE 9419 9420 9421 9425
+
+ENTRYPOINT  ["mfsmaster", "-d", "start"]
