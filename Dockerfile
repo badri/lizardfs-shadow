@@ -29,4 +29,8 @@ RUN echo "PERSONALITY=shadow" >> /etc/mfs/mfsmaster.cfg
 
 EXPOSE 9419 9420 9421 9425
 
+RUN chmod 0755 /var/lib/mfs
+
+RUN chown -R mfs:mfs /var/lib/mfs
+
 ENTRYPOINT  ["mfsmaster", "-d", "start"]
